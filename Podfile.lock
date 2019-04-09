@@ -1,0 +1,22 @@
+PODS:
+  - SDWebImage (4.4.6):
+    - SDWebImage/Core (= 4.4.6)
+  - SDWebImage/Core (4.4.6)
+  - SwiftDate (4.5.1)
+
+DEPENDENCIES:
+  - SDWebImage (~> 4.0)
+  - SwiftDate (~> 4.0)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - SDWebImage
+    - SwiftDate
+
+SPEC CHECKSUMS:
+  SDWebImage: 3f3f0c02f09798048c47a5ed0a13f17b063572d8
+  SwiftDate: 7b56d42a221f582047287deb256b23fc5ed49a60
+
+PODFILE CHECKSUM: 3ea856035f8a75761c751980aa09724c71bd5f3e
+
+COCOAPODS: 1.6.1

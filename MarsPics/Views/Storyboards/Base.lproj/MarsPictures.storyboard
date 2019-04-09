@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oTe-Ky-g1j">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Rover Pictures View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="RoverPicturesViewController" customModule="MarsPics" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="0lQ-GC-Ccx" userLabel="Main Stack">
+                                <rect key="frame" x="8" y="96" width="359" height="682"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="42E-HZ-Itq">
+                                        <rect key="frame" x="0.0" y="0.0" width="359" height="35"/>
+                                        <segments>
+                                            <segment title="Cusiosity"/>
+                                            <segment title="Opportunity"/>
+                                            <segment title="Spirit"/>
+                                        </segments>
+                                        <color key="tintColor" red="0.8980392157" green="0.17013514960000001" blue="0.2518364152" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="whenSwipeRovers:" destination="BYZ-38-t0r" eventType="valueChanged" id="3XE-vP-NpI"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jPT-VH-SvP" userLabel="RoverPicsCollectionView">
+                                        <rect key="frame" x="0.0" y="42" width="359" height="640"/>
+                                        <color key="backgroundColor" red="0.19607843459999999" green="0.19607843459999999" blue="0.19607843459999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="8" minimumInteritemSpacing="8" id="xgW-TN-9Z0">
+                                            <size key="itemSize" width="50" height="50"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" misplaced="YES" restorationIdentifier="RoverPicture" reuseIdentifier="RoverPicture" id="8Nt-Dc-9RT" userLabel="RoverPicture">
+                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </view>
+                                            </collectionViewCell>
+                                        </cells>
+                                    </collectionView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="42E-HZ-Itq" firstAttribute="height" secondItem="0lQ-GC-Ccx" secondAttribute="height" multiplier="1:20" id="ubi-e2-bAI"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.19607843459999999" green="0.19607843459999999" blue="0.19607843459999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="0lQ-GC-Ccx" secondAttribute="bottom" id="XGl-jz-kJg"/>
+                            <constraint firstItem="0lQ-GC-Ccx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="XKS-tY-k4e"/>
+                            <constraint firstItem="0lQ-GC-Ccx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="sPd-mu-cZe"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0lQ-GC-Ccx" secondAttribute="trailing" constant="8" id="yZb-fE-zCu"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="RZI-Pp-FIE"/>
+                    <connections>
+                        <outlet property="mainStack" destination="0lQ-GC-Ccx" id="Stz-SR-wSL"/>
+                        <outlet property="roverPicsCollectionView" destination="jPT-VH-SvP" id="Hzc-yz-BOW"/>
+                        <outlet property="roverType" destination="42E-HZ-Itq" id="T3T-8w-1cV"/>
+                        <outlet property="stackLeadingConstant" destination="XKS-tY-k4e" id="oGt-Uf-EfY"/>
+                        <outlet property="stackTraillingConstant" destination="yZb-fE-zCu" id="zp9-Iw-Pvh"/>
+                        <segue destination="hMv-cn-gu6" kind="show" identifier="selectedPictureSegue" id="HAT-Tg-E4D"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2466.4000000000001" y="741.87192118226608"/>
+        </scene>
+        <!--Selected Picture View Controller-->
+        <scene sceneID="5be-ur-VNE">
+            <objects>
+                <viewController id="hMv-cn-gu6" customClass="SelectedPictureViewController" customModule="MarsPics" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4NT-ku-v5t">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="mQe-us-QlN">
+                                <rect key="frame" x="8" y="96" width="359" height="682"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6zA-lY-7hn">
+                                        <rect key="frame" x="0.0" y="0.0" width="359" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="xYU-qR-ZRI"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                                        <color key="textColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CW8-sC-NTg">
+                                        <rect key="frame" x="0.0" y="48" width="359" height="634"/>
+                                        <color key="backgroundColor" red="0.19607843459999999" green="0.19607843459999999" blue="0.19607843459999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.19607843459999999" green="0.19607843459999999" blue="0.19607843459999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="mQe-us-QlN" firstAttribute="top" secondItem="D1w-ua-vp5" secondAttribute="top" constant="8" id="1uS-Rd-zHY"/>
+                            <constraint firstItem="D1w-ua-vp5" firstAttribute="trailing" secondItem="mQe-us-QlN" secondAttribute="trailing" constant="8" id="G8R-7I-5TB"/>
+                            <constraint firstItem="mQe-us-QlN" firstAttribute="leading" secondItem="D1w-ua-vp5" secondAttribute="leading" constant="8" id="Gl1-IF-mUI"/>
+                            <constraint firstItem="mQe-us-QlN" firstAttribute="bottom" secondItem="D1w-ua-vp5" secondAttribute="bottom" id="cnv-2j-1EJ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="D1w-ua-vp5"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="iCR-Rn-zGl"/>
+                    <connections>
+                        <outlet property="cameraLabel" destination="6zA-lY-7hn" id="avQ-14-GyM"/>
+                        <outlet property="image" destination="CW8-sC-NTg" id="b6X-bW-aeX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IHj-sj-bo0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3428" y="741.87192118226608"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="llc-mr-NL0">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oTe-Ky-g1j" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="SiW-qV-Xre">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="UlL-FK-SeC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LOh-Sa-Xan" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1524" y="741.87192118226608"/>
+        </scene>
+    </scenes>
+    <color key="tintColor" red="0.8980392157" green="0.17013514960000001" blue="0.2518364152" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+</document>
