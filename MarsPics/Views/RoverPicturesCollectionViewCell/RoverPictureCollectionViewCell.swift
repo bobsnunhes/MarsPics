@@ -71,5 +71,4 @@ class RoverPictureCollectionViewCell: UICollectionViewCell {
             self.isUserInteractionEnabled = true
         }
     }
-
 }

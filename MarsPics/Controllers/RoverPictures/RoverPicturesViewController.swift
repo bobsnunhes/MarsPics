@@ -25,9 +25,17 @@ class RoverPicturesViewController: UIViewController {
     @IBOutlet weak var stackTraillingConstant: NSLayoutConstraint!
     @IBOutlet weak var stackLeadingConstant: NSLayoutConstraint!
     
-    //Instancia o network manager para chamar os métodos da API
+    //MARK: Instancia o network manager para chamar os métodos da API
     private var networkManager: NetworkManager = {
         return NetworkManager()
+    }()
+    
+    //MARK: Activity indicator
+    let activityIndicator: UIActivityIndicatorView = {
+        let ai = UIActivityIndicatorView(style: .whiteLarge)
+        ai.color = .white
+        ai.translatesAutoresizingMaskIntoConstraints = false
+        return ai
     }()
     
     //MARK: Identificadores
@@ -37,25 +45,31 @@ class RoverPicturesViewController: UIViewController {
     //MARK: Nib Names
     let nibRoverColViewCellID = "RoverPictureCollectionViewCell"
     
+    //MARK: loadedPictures - Armazena informação das URL + informação do Rover
     var loadedPictures: RoverPictures = RoverPictures()
-    var loadedBatchPictures: RoverPictures = RoverPictures()
     
+    //MARK: defaultDateFormat - Formato padrão de datas utilizado na API da NASA
     let defaultDateFormat: String = "yyyy-MM-d"
     
+    //MARK: Controle de execução de tasks
     var isLocked = false
     var fetchingMore = false
     
+    //MARK: Armazena informação da imagem selecionada
     var selectedPicture: UIImage?
     var selectedCameraName: String?
     
+    //MARK: Armazena valores utilizados nos parametros de consulta da última vez
     var currentDate = DateInRegion()
     var currentPage = 1
     var currentRover: String = RoverName.curiosity.rawValue
     var currentSection: Int = 0
     
+    //MARK: Informação dos manifestos carregados
     var curiosityLoadedManifest: RoverManifest?
     var opportunityLoadedManifest: RoverManifest?
     var spiritLoadedManifest: RoverManifest?
+
     let roverNames: [String] = [RoverName.curiosity.rawValue//,RoverName.opportunity.rawValue,
     //RoverName.spirit.rawValue
     ]
@@ -63,6 +77,7 @@ class RoverPicturesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupRoverPicturesCollectionView()
+        setupIndicator()
         
         //Busca rover manifest
         loadRoverManifests()
@@ -71,27 +86,22 @@ class RoverPicturesViewController: UIViewController {
     
     //MARK: whenSwipeRovers - Quando usuário seleciona o rover no segmentcontroll
     @IBAction func whenSwipeRovers(_ sender: UISegmentedControl) {
+        //Armazena seção selecionada
         currentSection = sender.selectedSegmentIndex
+        
+        //Cancela qualquer task existente
         networkManager.router.cancel()
+        
+        //Reseta variáveis de controle de fetch
         fetchingMore = false
         isLocked = false
         
-        switch currentSection {
-        case 0: //Curiosity
-            currentRover = RoverName.curiosity.rawValue
-        case 1:
-            currentRover = RoverName.opportunity.rawValue
-        case 2:
-            currentRover = RoverName.spirit.rawValue
-        default:
-            currentRover = RoverName.curiosity.rawValue
-        }
-        
+        //Atualiza informações do rover de acordo com a seção do segment control
+        updateRoverInformationBySection()
         
         self.loadedPictures.roverPictures.removeAll()
         self.roverPicsCollectionView.reloadData()
     
-        
         loadRoverPictures(roverType: currentRover)
         
     }
@@ -104,9 +114,31 @@ class RoverPicturesViewController: UIViewController {
         self.roverPicsCollectionView.register(UINib(nibName: nibRoverColViewCellID, bundle: nil), forCellWithReuseIdentifier: cellReuseId)
     }
     
+    func updateRoverInformationBySection() {
+        let loadedDate: DateInRegion?
+        switch currentSection {
+        case 0:
+            currentRover = RoverName.curiosity.rawValue
+            loadedDate =  curiosityLoadedManifest?.photoManifest.maxDate.date(format: .custom(defaultDateFormat)) ?? DateInRegion()
+        case 1:
+            currentRover = RoverName.opportunity.rawValue
+            loadedDate =  opportunityLoadedManifest?.photoManifest.maxDate.date(format: .custom(defaultDateFormat)) ?? DateInRegion()
+        case 2:
+            currentRover = RoverName.spirit.rawValue
+            loadedDate =  spiritLoadedManifest?.photoManifest.maxDate.date(format: .custom(defaultDateFormat)) ?? DateInRegion()
+        default:
+            currentRover = RoverName.curiosity.rawValue
+            loadedDate =  curiosityLoadedManifest?.photoManifest.maxDate.date(format: .custom(defaultDateFormat)) ?? DateInRegion()
+        }
+        
+        if let date = loadedDate {
+            currentDate = date
+        }
+    }
+    
     //MARK: loadRoverManifests - Carrega info
     func loadRoverManifests() {
-        
+        startLoading()
         let group = DispatchGroup()
         group.enter()
         DispatchQueue.global().async {
@@ -121,11 +153,14 @@ class RoverPicturesViewController: UIViewController {
                     if let loadedManifest = manifest {
                         print("MAX DATE \(rover) = \(loadedManifest.photoManifest.maxDate)")
                         switch  rover {
-                        case RoverName.curiosity.rawValue: self.curiosityLoadedManifest = loadedManifest
+                        case RoverName.curiosity.rawValue:
+                            self.curiosityLoadedManifest = loadedManifest
                         case RoverName.opportunity.rawValue: self.opportunityLoadedManifest = loadedManifest
                         case RoverName.spirit.rawValue: self.spiritLoadedManifest = loadedManifest
                         default: self.curiosityLoadedManifest = loadedManifest
                         }
+                        
+                        self.currentDate =  loadedManifest.photoManifest.maxDate.date(format: .custom(self.defaultDateFormat)) ?? DateInRegion()
                         
                         if rover == RoverName.curiosity.rawValue {
                             group.leave()
@@ -137,6 +172,7 @@ class RoverPicturesViewController: UIViewController {
         }
         
         group.notify(queue: .main) {
+            self.stopLoading()
             self.loadRoverPictures(roverType: self.currentRover)
         }
         
@@ -149,13 +185,6 @@ class RoverPicturesViewController: UIViewController {
             return
         }
         
-        switch currentSection {
-        case 0: currentDate = curiosityLoadedManifest?.photoManifest.maxDate.date(format: .custom(defaultDateFormat)) ?? DateInRegion()
-        case 1: currentDate = opportunityLoadedManifest?.photoManifest.maxDate.date(format: .custom(defaultDateFormat)) ?? DateInRegion()
-        case 2: currentDate = spiritLoadedManifest?.photoManifest.maxDate.date(format: .custom(defaultDateFormat)) ?? DateInRegion()
-        default: currentDate = DateInRegion()
-        }
-//        print("RoverTYPE = \(roverType)")
         isLocked = false
         var isFetched: Bool = false
         DispatchQueue.global().async {
@@ -175,7 +204,7 @@ class RoverPicturesViewController: UIViewController {
                         
                         if let roverPics = roverPictures {
                             isFetched = true
-                            //                        self.curiosityLastRequestIndex?.startDate = self.currentDate
+                            
                             self.currentPage += 1
                             self.isLocked = true
                             self.fetchingMore = false
@@ -213,11 +242,9 @@ class RoverPicturesViewController: UIViewController {
                 }
             }
         }
-        
-        
-        
     }
     
+    //MARK: Prepare for segue - Chama tela de detalhes e passa informação da foto selecionada
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "selectedPictureSegue" {
             let backItem = UIBarButtonItem()
@@ -228,6 +255,33 @@ class RoverPicturesViewController: UIViewController {
             destination.segueText = selectedCameraName!
         }
     }
+    //MARK: Configura Activity Indicator
+    func setupIndicator(){
+        //Configura o Activity indicator
+        view.addSubview(activityIndicator)
+        activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+    }
+    
+    func startLoading() {
+        DispatchQueue.main.async {
+            self.activityIndicator.startAnimating()
+            self.view.alpha = CGFloat(0.5)
+            self.view.backgroundColor = UIColor.lightGray
+            self.view.isUserInteractionEnabled = false
+        }
+        
+    }
+    
+    func stopLoading() {
+        DispatchQueue.main.async {
+            self.activityIndicator.stopAnimating()
+            self.view.alpha = 1
+            self.view.backgroundColor = UIColor.clear
+            self.view.isUserInteractionEnabled = true
+        }
+    }
+    
 }
 
 //MARK: Delegate e Datasource Functions
@@ -247,9 +301,9 @@ extension RoverPicturesViewController: UICollectionViewDelegate, UICollectionVie
         let url = loadedPictures.roverPictures[indexPath.row].imgSrc
         
         if !url.isEmpty {
-            cell.imageURL = url
-            cell.startLoading()
             DispatchQueue.global().async {
+                cell.imageURL = url
+                cell.startLoading()
                 cell.picture.sd_setImage(with: URL(string: url), placeholderImage: UIImage(named: "mars"), options: .allowInvalidSSLCertificates) { (image, error, imageCachedType, url) in
                     cell.picture.image = image
                     cell.stopLoading()
@@ -285,6 +339,7 @@ extension RoverPicturesViewController: UICollectionViewDelegate, UICollectionVie
         }
     }
     
+    //MARK: beginBatchFetch - Função controla fetch de informações a partir do scroll
     func beginBatchFetch() {
         fetchingMore = true
         
