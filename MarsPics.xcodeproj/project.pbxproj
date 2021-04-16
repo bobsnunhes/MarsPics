@@ -1,0 +1,657 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5A6E97398450C872F5BAA75A /* Pods_MarsPics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76CA80B5CDABD424D0CBCEB9 /* Pods_MarsPics.framework */; };
+		62293F532258EAB500B0425C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62293F522258EAB500B0425C /* AppDelegate.swift */; };
+		62293F552258EAB500B0425C /* RoverPicturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62293F542258EAB500B0425C /* RoverPicturesViewController.swift */; };
+		62293F582258EAB500B0425C /* MarsPictures.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62293F562258EAB500B0425C /* MarsPictures.storyboard */; };
+		62293F5B2258EAB500B0425C /* MarsPics.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 62293F592258EAB500B0425C /* MarsPics.xcdatamodeld */; };
+		62293F5D2258EAB800B0425C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62293F5C2258EAB800B0425C /* Assets.xcassets */; };
+		62293F602258EAB800B0425C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62293F5E2258EAB800B0425C /* LaunchScreen.storyboard */; };
+		62293F862258EFF000B0425C /* URLParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62293F832258EFEF00B0425C /* URLParameterEncoder.swift */; };
+		62293F872258EFF000B0425C /* JSONParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62293F842258EFEF00B0425C /* JSONParameterEncoder.swift */; };
+		62293F882258EFF000B0425C /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62293F852258EFF000B0425C /* ParameterEncoding.swift */; };
+		62293F8E2258F00000B0425C /* HTTPTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62293F892258F00000B0425C /* HTTPTask.swift */; };
+		62293F8F2258F00000B0425C /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62293F8A2258F00000B0425C /* HTTPMethod.swift */; };
+		62293F902258F00000B0425C /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62293F8B2258F00000B0425C /* NetworkRouter.swift */; };
+		62293F912258F00000B0425C /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62293F8C2258F00000B0425C /* Router.swift */; };
+		62293F922258F00000B0425C /* EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62293F8D2258F00000B0425C /* EndPointType.swift */; };
+		62293F952258F02500B0425C /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62293F942258F02500B0425C /* NetworkManager.swift */; };
+		62293F972258F2DA00B0425C /* NasaApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62293F962258F2DA00B0425C /* NasaApi.swift */; };
+		62293F9B225914E100B0425C /* RoverCameras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62293F9A225914E100B0425C /* RoverCameras.swift */; };
+		62293F9D225914FD00B0425C /* Rover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62293F9C225914FD00B0425C /* Rover.swift */; };
+		62293F9F2259154500B0425C /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62293F9E2259154500B0425C /* Camera.swift */; };
+		62293FA12259158000B0425C /* Picture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62293FA02259158000B0425C /* Picture.swift */; };
+		62293FA3225915A200B0425C /* RoverPictures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62293FA2225915A200B0425C /* RoverPictures.swift */; };
+		62293FAA22592CB900B0425C /* RoverPictureCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62293FA822592CB900B0425C /* RoverPictureCollectionViewCell.swift */; };
+		62293FAB22592CB900B0425C /* RoverPictureCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62293FA922592CB900B0425C /* RoverPictureCollectionViewCell.xib */; };
+		62ACE888225ACC4400931C5D /* SelectedPictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62ACE887225ACC4400931C5D /* SelectedPictureViewController.swift */; };
+		62F4BE24225BA40900AA91D8 /* RoverManifest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F4BE23225BA40900AA91D8 /* RoverManifest.swift */; };
+		62F4BE27225BA55C00AA91D8 /* PhotoManifest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F4BE26225BA55C00AA91D8 /* PhotoManifest.swift */; };
+		62F4BE29225BB54400AA91D8 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F4BE28225BB54400AA91D8 /* Photo.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		5E9B8C0BDF33F9783EE00A90 /* Pods-MarsPics.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarsPics.release.xcconfig"; path = "Target Support Files/Pods-MarsPics/Pods-MarsPics.release.xcconfig"; sourceTree = "<group>"; };
+		62293F4F2258EAB400B0425C /* MarsPics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarsPics.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		62293F522258EAB500B0425C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		62293F542258EAB500B0425C /* RoverPicturesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverPicturesViewController.swift; sourceTree = "<group>"; };
+		62293F572258EAB500B0425C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MarsPictures.storyboard; sourceTree = "<group>"; };
+		62293F5A2258EAB500B0425C /* MarsPics.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MarsPics.xcdatamodel; sourceTree = "<group>"; };
+		62293F5C2258EAB800B0425C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		62293F5F2258EAB800B0425C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		62293F612258EAB800B0425C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		62293F832258EFEF00B0425C /* URLParameterEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLParameterEncoder.swift; sourceTree = "<group>"; };
+		62293F842258EFEF00B0425C /* JSONParameterEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParameterEncoder.swift; sourceTree = "<group>"; };
+		62293F852258EFF000B0425C /* ParameterEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
+		62293F892258F00000B0425C /* HTTPTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPTask.swift; sourceTree = "<group>"; };
+		62293F8A2258F00000B0425C /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		62293F8B2258F00000B0425C /* NetworkRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
+		62293F8C2258F00000B0425C /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		62293F8D2258F00000B0425C /* EndPointType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndPointType.swift; sourceTree = "<group>"; };
+		62293F942258F02500B0425C /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		62293F962258F2DA00B0425C /* NasaApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaApi.swift; sourceTree = "<group>"; };
+		62293F9A225914E100B0425C /* RoverCameras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverCameras.swift; sourceTree = "<group>"; };
+		62293F9C225914FD00B0425C /* Rover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rover.swift; sourceTree = "<group>"; };
+		62293F9E2259154500B0425C /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
+		62293FA02259158000B0425C /* Picture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Picture.swift; sourceTree = "<group>"; };
+		62293FA2225915A200B0425C /* RoverPictures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverPictures.swift; sourceTree = "<group>"; };
+		62293FA822592CB900B0425C /* RoverPictureCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverPictureCollectionViewCell.swift; sourceTree = "<group>"; };
+		62293FA922592CB900B0425C /* RoverPictureCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoverPictureCollectionViewCell.xib; sourceTree = "<group>"; };
+		62ACE887225ACC4400931C5D /* SelectedPictureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedPictureViewController.swift; sourceTree = "<group>"; };
+		62F4BE23225BA40900AA91D8 /* RoverManifest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverManifest.swift; sourceTree = "<group>"; };
+		62F4BE26225BA55C00AA91D8 /* PhotoManifest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoManifest.swift; sourceTree = "<group>"; };
+		62F4BE28225BB54400AA91D8 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		76CA80B5CDABD424D0CBCEB9 /* Pods_MarsPics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarsPics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B431E891C611EA8FFE136077 /* Pods-MarsPics.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarsPics.debug.xcconfig"; path = "Target Support Files/Pods-MarsPics/Pods-MarsPics.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		62293F4C2258EAB400B0425C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A6E97398450C872F5BAA75A /* Pods_MarsPics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		127C8C73CB58A3005EA72099 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				76CA80B5CDABD424D0CBCEB9 /* Pods_MarsPics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		44263082E551233221AEB307 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B431E891C611EA8FFE136077 /* Pods-MarsPics.debug.xcconfig */,
+				5E9B8C0BDF33F9783EE00A90 /* Pods-MarsPics.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		62293F462258EAB400B0425C = {
+			isa = PBXGroup;
+			children = (
+				62293F512258EAB500B0425C /* MarsPics */,
+				62293F502258EAB400B0425C /* Products */,
+				44263082E551233221AEB307 /* Pods */,
+				127C8C73CB58A3005EA72099 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		62293F502258EAB400B0425C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				62293F4F2258EAB400B0425C /* MarsPics.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		62293F512258EAB500B0425C /* MarsPics */ = {
+			isa = PBXGroup;
+			children = (
+				62293F672258EBB500B0425C /* AppDelegate */,
+				62293F682258EC0E00B0425C /* Models */,
+				62293F692258EC1600B0425C /* Views */,
+				62293F6A2258EC1D00B0425C /* Controllers */,
+				62293F772258EEDD00B0425C /* Networking */,
+				62293F6C2258EC7D00B0425C /* Resources */,
+				62293F6D2258EC9E00B0425C /* SupportFiles */,
+				62293F6F2258ECCB00B0425C /* CoreData */,
+			);
+			path = MarsPics;
+			sourceTree = "<group>";
+		};
+		62293F672258EBB500B0425C /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				62293F522258EAB500B0425C /* AppDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		62293F682258EC0E00B0425C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				62F4BE25225BA45E00AA91D8 /* RoverManifest */,
+				62293FA62259173E00B0425C /* RoverPictures */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		62293F692258EC1600B0425C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				62293F6B2258EC4200B0425C /* Storyboards */,
+				62293FAC22592CC300B0425C /* RoverPicturesCollectionViewCell */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		62293F6A2258EC1D00B0425C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				62293FA722592C1B00B0425C /* RoverPictures */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		62293F6B2258EC4200B0425C /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				62293F562258EAB500B0425C /* MarsPictures.storyboard */,
+				62293F5E2258EAB800B0425C /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		62293F6C2258EC7D00B0425C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				62293F5C2258EAB800B0425C /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		62293F6D2258EC9E00B0425C /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				62293F612258EAB800B0425C /* Info.plist */,
+			);
+			path = SupportFiles;
+			sourceTree = "<group>";
+		};
+		62293F6F2258ECCB00B0425C /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				62293F592258EAB500B0425C /* MarsPics.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		62293F772258EEDD00B0425C /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				62293F932258F00F00B0425C /* Manager */,
+				62293F7E2258EF1800B0425C /* EndPoint */,
+				62293F822258EFD700B0425C /* Services */,
+				62293F812258EFCD00B0425C /* Encoding */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		62293F7E2258EF1800B0425C /* EndPoint */ = {
+			isa = PBXGroup;
+			children = (
+				62293F962258F2DA00B0425C /* NasaApi.swift */,
+			);
+			path = EndPoint;
+			sourceTree = "<group>";
+		};
+		62293F812258EFCD00B0425C /* Encoding */ = {
+			isa = PBXGroup;
+			children = (
+				62293F842258EFEF00B0425C /* JSONParameterEncoder.swift */,
+				62293F852258EFF000B0425C /* ParameterEncoding.swift */,
+				62293F832258EFEF00B0425C /* URLParameterEncoder.swift */,
+			);
+			path = Encoding;
+			sourceTree = "<group>";
+		};
+		62293F822258EFD700B0425C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				62293F8D2258F00000B0425C /* EndPointType.swift */,
+				62293F8A2258F00000B0425C /* HTTPMethod.swift */,
+				62293F892258F00000B0425C /* HTTPTask.swift */,
+				62293F8B2258F00000B0425C /* NetworkRouter.swift */,
+				62293F8C2258F00000B0425C /* Router.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		62293F932258F00F00B0425C /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				62293F942258F02500B0425C /* NetworkManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		62293FA62259173E00B0425C /* RoverPictures */ = {
+			isa = PBXGroup;
+			children = (
+				62293FA2225915A200B0425C /* RoverPictures.swift */,
+				62293FA02259158000B0425C /* Picture.swift */,
+				62293F9C225914FD00B0425C /* Rover.swift */,
+				62293F9E2259154500B0425C /* Camera.swift */,
+				62293F9A225914E100B0425C /* RoverCameras.swift */,
+			);
+			path = RoverPictures;
+			sourceTree = "<group>";
+		};
+		62293FA722592C1B00B0425C /* RoverPictures */ = {
+			isa = PBXGroup;
+			children = (
+				62293F542258EAB500B0425C /* RoverPicturesViewController.swift */,
+				62ACE887225ACC4400931C5D /* SelectedPictureViewController.swift */,
+			);
+			path = RoverPictures;
+			sourceTree = "<group>";
+		};
+		62293FAC22592CC300B0425C /* RoverPicturesCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				62293FA822592CB900B0425C /* RoverPictureCollectionViewCell.swift */,
+				62293FA922592CB900B0425C /* RoverPictureCollectionViewCell.xib */,
+			);
+			path = RoverPicturesCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		62F4BE25225BA45E00AA91D8 /* RoverManifest */ = {
+			isa = PBXGroup;
+			children = (
+				62F4BE23225BA40900AA91D8 /* RoverManifest.swift */,
+				62F4BE26225BA55C00AA91D8 /* PhotoManifest.swift */,
+				62F4BE28225BB54400AA91D8 /* Photo.swift */,
+			);
+			path = RoverManifest;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		62293F4E2258EAB400B0425C /* MarsPics */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 62293F642258EAB800B0425C /* Build configuration list for PBXNativeTarget "MarsPics" */;
+			buildPhases = (
+				5C282BAEFD315156B8AE1812 /* [CP] Check Pods Manifest.lock */,
+				62293F4B2258EAB400B0425C /* Sources */,
+				62293F4C2258EAB400B0425C /* Frameworks */,
+				62293F4D2258EAB400B0425C /* Resources */,
+				C436D89178254D86FB5069F1 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MarsPics;
+			productName = MarsPics;
+			productReference = 62293F4F2258EAB400B0425C /* MarsPics.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		62293F472258EAB400B0425C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1020;
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = Betocorporation;
+				TargetAttributes = {
+					62293F4E2258EAB400B0425C = {
+						CreatedOnToolsVersion = 10.2;
+					};
+				};
+			};
+			buildConfigurationList = 62293F4A2258EAB400B0425C /* Build configuration list for PBXProject "MarsPics" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 62293F462258EAB400B0425C;
+			productRefGroup = 62293F502258EAB400B0425C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				62293F4E2258EAB400B0425C /* MarsPics */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		62293F4D2258EAB400B0425C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				62293FAB22592CB900B0425C /* RoverPictureCollectionViewCell.xib in Resources */,
+				62293F602258EAB800B0425C /* LaunchScreen.storyboard in Resources */,
+				62293F5D2258EAB800B0425C /* Assets.xcassets in Resources */,
+				62293F582258EAB500B0425C /* MarsPictures.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5C282BAEFD315156B8AE1812 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MarsPics-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C436D89178254D86FB5069F1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MarsPics/Pods-MarsPics-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftDate/SwiftDate.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftDate.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MarsPics/Pods-MarsPics-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		62293F4B2258EAB400B0425C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				62293FAA22592CB900B0425C /* RoverPictureCollectionViewCell.swift in Sources */,
+				62293FA3225915A200B0425C /* RoverPictures.swift in Sources */,
+				62293F9F2259154500B0425C /* Camera.swift in Sources */,
+				62293F912258F00000B0425C /* Router.swift in Sources */,
+				62293F882258EFF000B0425C /* ParameterEncoding.swift in Sources */,
+				62293F552258EAB500B0425C /* RoverPicturesViewController.swift in Sources */,
+				62293F952258F02500B0425C /* NetworkManager.swift in Sources */,
+				62293F532258EAB500B0425C /* AppDelegate.swift in Sources */,
+				62F4BE24225BA40900AA91D8 /* RoverManifest.swift in Sources */,
+				62293F9D225914FD00B0425C /* Rover.swift in Sources */,
+				62293F9B225914E100B0425C /* RoverCameras.swift in Sources */,
+				62293F872258EFF000B0425C /* JSONParameterEncoder.swift in Sources */,
+				62293F8E2258F00000B0425C /* HTTPTask.swift in Sources */,
+				62293FA12259158000B0425C /* Picture.swift in Sources */,
+				62293F972258F2DA00B0425C /* NasaApi.swift in Sources */,
+				62ACE888225ACC4400931C5D /* SelectedPictureViewController.swift in Sources */,
+				62F4BE29225BB54400AA91D8 /* Photo.swift in Sources */,
+				62F4BE27225BA55C00AA91D8 /* PhotoManifest.swift in Sources */,
+				62293F8F2258F00000B0425C /* HTTPMethod.swift in Sources */,
+				62293F5B2258EAB500B0425C /* MarsPics.xcdatamodeld in Sources */,
+				62293F922258F00000B0425C /* EndPointType.swift in Sources */,
+				62293F902258F00000B0425C /* NetworkRouter.swift in Sources */,
+				62293F862258EFF000B0425C /* URLParameterEncoder.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		62293F562258EAB500B0425C /* MarsPictures.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				62293F572258EAB500B0425C /* Base */,
+			);
+			name = MarsPictures.storyboard;
+			sourceTree = "<group>";
+		};
+		62293F5E2258EAB800B0425C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				62293F5F2258EAB800B0425C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		62293F622258EAB800B0425C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		62293F632258EAB800B0425C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		62293F652258EAB800B0425C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B431E891C611EA8FFE136077 /* Pods-MarsPics.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CRVTY582ZT;
+				INFOPLIST_FILE = "$(SRCROOT)/MarsPics/SupportFiles/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.betocorporation.MarsPics;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		62293F662258EAB800B0425C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5E9B8C0BDF33F9783EE00A90 /* Pods-MarsPics.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CRVTY582ZT;
+				INFOPLIST_FILE = "$(SRCROOT)/MarsPics/SupportFiles/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.betocorporation.MarsPics;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		62293F4A2258EAB400B0425C /* Build configuration list for PBXProject "MarsPics" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				62293F622258EAB800B0425C /* Debug */,
+				62293F632258EAB800B0425C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		62293F642258EAB800B0425C /* Build configuration list for PBXNativeTarget "MarsPics" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				62293F652258EAB800B0425C /* Debug */,
+				62293F662258EAB800B0425C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		62293F592258EAB500B0425C /* MarsPics.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				62293F5A2258EAB500B0425C /* MarsPics.xcdatamodel */,
+			);
+			currentVersion = 62293F5A2258EAB500B0425C /* MarsPics.xcdatamodel */;
+			path = MarsPics.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 62293F472258EAB400B0425C /* Project object */;
+}
